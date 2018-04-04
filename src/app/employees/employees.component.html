@@ -1,0 +1,44 @@
+<h1>{{employee.name}} Details </h1>
+<div><span class='label'>Id: </span>
+  <span class='label-content'>
+    {{employee.id}}
+  </span>
+</div>
+<div><span class='label'>Name: </span>
+  <span class='label-content'>
+    {{employee.name}}
+  </span>
+</div>
+<div><span class='label'>Age: </span>
+  <span class='label-content'>
+    {{employee.age}}
+  </span>
+</div>
+<div><span class='label'>Desgination: </span>
+  <span class='label-content'>
+    {{employee.designation}}
+  </span>
+</div>
+
+<div>
+  Change the employee name here
+  <input [(ngModel)] = "employee.name" placeholder='change name'>
+</div>
+
+<h1>You are seeing Emplyees List</h1>
+<ul class='heroes'>
+    <li *ngFor='let employee of employeeList'
+      [class.selected]="employee === selectedEmployee"
+      (click)='onSelect(employee)'>
+      <span class="badge">{{employee.id}}</span> {{employee.name}}
+    <li>
+</ul>
+<div *ngIf='selectedEmployee'>
+  <h2>{{ selectedEmployee.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{selectedEmployee.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]='selectedEmployee.name' placeholder='name'>
+    </label>
+  </div>
+</div>
