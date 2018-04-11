@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EMPLOYEES } from '../employeeList';
 
+import { EmployeeService } from '../employee.service';
+
 @Component({
   selector: 'app-employees',
   templateUrl: './employees.component.html',
@@ -14,16 +16,22 @@ export class EmployeesComponent implements OnInit {
     age: 23,
     designation: 'Developer'
   };
-  employeeList = EMPLOYEES;
-  selectedEmployee:Employee;
+  // selectedEmployee:Employee;
+  employeeList: Employee[];
 
-  onSelect(employee: Employee): void {
-      this.selectedEmployee = employee;
-  }
+  // onSelect(employee: Employee): void {
+  //     this.selectedEmployee = employee;
+  // }
 
-  constructor() { }
+  constructor(private employeeService : EmployeeService) { }
 
   ngOnInit() {
+      this.getEmployeeList();
+  }
+
+  getEmployeeList() : void {
+      this.employeeService.getEmployees()
+          .subscribe(employees => this.employeeList = employees);
   }
 
 }

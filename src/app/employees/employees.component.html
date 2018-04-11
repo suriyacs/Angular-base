@@ -27,18 +27,10 @@
 
 <h1>You are seeing Emplyees List</h1>
 <ul class='heroes'>
-    <li *ngFor='let employee of employeeList'
-      [class.selected]="employee === selectedEmployee"
-      (click)='onSelect(employee)'>
-      <span class="badge">{{employee.id}}</span> {{employee.name}}
+    <li *ngFor='let employee of employeeList'>
+      <a href='/detail/{{employee.id}}'>
+          <span class="badge">{{employee.id}}</span> {{employee.name}}
+      </a>
     <li>
 </ul>
-<div *ngIf='selectedEmployee'>
-  <h2>{{ selectedEmployee.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{selectedEmployee.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]='selectedEmployee.name' placeholder='name'>
-    </label>
-  </div>
-</div>
+<!-- <app-employee-detail [employee]='selectedEmployee'></app-employee-detail> -->
