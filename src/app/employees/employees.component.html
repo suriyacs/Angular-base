@@ -28,7 +28,7 @@
 <h1>You are seeing Emplyees List</h1>
 <ul class='heroes'>
     <li *ngFor='let employee of employeeList'>
-      <a href='/detail/{{employee.id}}'>
+      <a routerLink='/detail/{{employee.id}}'>
           <span class="badge">{{employee.id}}</span> {{employee.name}}
       </a>
     <li>

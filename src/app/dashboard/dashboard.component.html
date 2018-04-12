@@ -3,6 +3,7 @@
     <a *ngFor='let employee of employeeList' class='col-l=4'
         routerLink='/detail/{{employee.id}}'>
         <div class='module employee'>
+          <h4>{{employee.id}}</h4>
             <h4>{{employee.name}}</h4>
         </div>
     </a>
